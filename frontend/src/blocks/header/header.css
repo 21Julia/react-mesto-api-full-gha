@@ -1,0 +1,25 @@
+.header {
+  max-width: 880px;
+  margin: 45px auto 40px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+}
+
+@media all and (max-width: 920px) {
+  .header {
+    margin-top: 0;
+    margin-bottom: 41px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+  }
+}

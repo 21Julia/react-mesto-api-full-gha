@@ -1,0 +1,15 @@
+.profile__description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 336px;
+}
+
+@media all and (max-width: 720px) {
+  .profile__description {
+    max-width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}

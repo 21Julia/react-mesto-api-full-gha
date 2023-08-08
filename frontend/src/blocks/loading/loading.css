@@ -1,0 +1,5 @@
+.loading {
+  position: relative;
+  display: flex;
+  margin: 200px auto 300px;
+}

@@ -1,0 +1,32 @@
+.loading__span {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 2px);
+  width: 50%;
+  height: 4px;
+  background: transparent;
+  transform-origin: left;
+  animation: animate 2s linear infinite;
+}
+
+.loading__span::before {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: -6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 13px #6cceee;
+  background: #6cceee;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}

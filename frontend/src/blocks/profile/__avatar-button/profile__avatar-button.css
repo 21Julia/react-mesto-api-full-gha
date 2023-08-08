@@ -1,0 +1,27 @@
+.profile__avatar-button {
+  margin-right: 30px;
+  padding: 0;
+  border: 0;
+  position: relative;
+  box-sizing: border-box;
+  background: #000;
+}
+
+.profile__avatar-button:hover::before {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left: 0;
+  top: 0;
+  background: url(../../../images/profile-avatar-button.svg) center no-repeat;
+  background-size: 26px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media all and (max-width: 720px) {
+  .profile__avatar-button{
+    margin-right: 0;
+  }
+}

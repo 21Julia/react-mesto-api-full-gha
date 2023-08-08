@@ -1,0 +1,5 @@
+.popup__illustration-container {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}

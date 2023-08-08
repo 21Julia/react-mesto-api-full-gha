@@ -1,0 +1,9 @@
+.user-form__input-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+}

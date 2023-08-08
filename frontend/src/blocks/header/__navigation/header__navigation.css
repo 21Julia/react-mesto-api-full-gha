@@ -1,0 +1,14 @@
+.header__navigation {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+@media all and (max-width: 920px) {
+  .header__navigation {
+    right: 30px;
+    top: 34px;
+  }
+}

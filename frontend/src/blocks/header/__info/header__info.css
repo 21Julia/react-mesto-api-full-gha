@@ -1,0 +1,25 @@
+.header__info {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+@media all and (max-width: 920px) {
+  .header__info {
+    right: 30px;
+    top: 34px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .header__info {
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    top: -142px;
+  }
+}

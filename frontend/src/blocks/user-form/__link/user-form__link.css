@@ -1,0 +1,15 @@
+.user-form__link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #fff;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+@media all and (max-width: 430px) {
+  .user-form__link {
+    margin-top: 20px;
+  }
+}

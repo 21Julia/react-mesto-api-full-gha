@@ -1,0 +1,10 @@
+.element {
+  margin: 0;
+  max-width: 282px;
+  background: #fff;
+  list-style: none;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+

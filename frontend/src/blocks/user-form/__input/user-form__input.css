@@ -1,0 +1,11 @@
+.user-form__input {
+  min-width: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  padding: 0 0 8px;
+  background-color: #000;
+  border: 0;
+  border-bottom: 2px solid #ccc;
+}

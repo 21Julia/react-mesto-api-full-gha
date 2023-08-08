@@ -1,0 +1,8 @@
+.popup__image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 75vw;
+  max-height: 75vh;
+  border-radius: 0;
+}

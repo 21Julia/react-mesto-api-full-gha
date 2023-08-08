@@ -1,0 +1,15 @@
+.popup__registration-image {
+  margin: 60px auto 32px;
+  background-size: 120px;
+  min-width: 120px;
+  min-height: 120px;
+  border: none;
+  padding: 0;
+}
+
+@media all and (max-width: 500px) {
+  .popup__registration-image {
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+}

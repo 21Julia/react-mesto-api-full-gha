@@ -1,0 +1,11 @@
+.button {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

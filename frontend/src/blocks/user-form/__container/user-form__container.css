@@ -1,0 +1,12 @@
+.user-form__container {
+  margin: 20px auto 0;
+  min-width: 358px;
+  box-sizing: border-box;
+}
+
+@media all and (max-width: 430px) {
+  .user-form__container {
+    margin-top: 0;
+    min-width: calc(100% - 60px);
+  }
+}
