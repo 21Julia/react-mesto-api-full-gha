@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
@@ -15,7 +16,11 @@ const { PORT = 4000, SERVER_ADDRESS = 'mongodb://127.0.0.1:27017/mestodb' } = pr
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000',
+    'https://juliak.nomoreparties.co',
+    'http://juliak.nomoreparties.co',
+  ],
   credentials: true,
 }));
 
@@ -33,6 +38,12 @@ app.use(cookieParser());
 mongoose.connect(SERVER_ADDRESS);
 
 app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.use(routes);
 

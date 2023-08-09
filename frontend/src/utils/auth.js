@@ -6,7 +6,6 @@ class Authorization {
   register(newUser) {
     return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -65,6 +64,6 @@ class Authorization {
   };
 };
 
-const auth = new Authorization('http://localhost:4000');
+const auth = new Authorization('http://localhost:3001');
 
 export default auth;
