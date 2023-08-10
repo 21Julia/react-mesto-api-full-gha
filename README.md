@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.252.130.240
+IP 84.252.130.240
 
 Frontend https://juliak.nomoreparties.co
 
