@@ -1,3 +1,5 @@
+import API_ADDRESS from './constants';
+
 class Api {
   constructor(baseUrl) {
     this._baseUrl = baseUrl;
@@ -122,6 +124,6 @@ class Api {
   };
 };
 
-const api = new Api('http://localhost:3001');
+const api = new Api(API_ADDRESS);
 
 export default api;

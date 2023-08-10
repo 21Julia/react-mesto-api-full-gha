@@ -1,3 +1,5 @@
+import API_ADDRESS from './constants';
+
 class Authorization {
   constructor(baseUrl) {
     this._baseUrl = baseUrl;
@@ -64,6 +66,6 @@ class Authorization {
   };
 };
 
-const auth = new Authorization('http://localhost:3001');
+const auth = new Authorization(API_ADDRESS);
 
 export default auth;
