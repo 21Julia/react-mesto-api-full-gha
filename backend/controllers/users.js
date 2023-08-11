@@ -8,7 +8,7 @@ const User = require('../models/user');
 const BadRequestError = require('../errors/BadRequestError');
 const NotFoundError = require('../errors/NotFoundError');
 const AlreadyExistsError = require('../errors/AlreadyExistsError');
-const { SECRET_KEY, SUCCESS_STATUS, CREATED_STATUS } = require('../utils/constants');
+const { SECRET_KEY, CREATED_STATUS } = require('../utils/constants');
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
@@ -21,13 +21,19 @@ module.exports.login = (req, res, next) => {
         { expiresIn: '7d' },
       );
 
-      return res.status(SUCCESS_STATUS).cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true, sameSite: true }).send({
-        _id: user._id,
-        email: user.email,
-        name: user.name,
-        about: user.about,
-        avatar: user.avatar,
-      });
+      return res
+        .cookie('jwt', token, {
+          maxAge: 3600000 * 24 * 7,
+          httpOnly: true,
+          sameSite: true,
+        })
+        .send({
+          _id: user._id,
+          email: user.email,
+          name: user.name,
+          about: user.about,
+          avatar: user.avatar,
+        });
     })
     .catch(next);
 };
@@ -64,7 +70,7 @@ module.exports.createUser = (req, res, next) => {
 module.exports.getAllUsers = (_req, res, next) => {
   User.find({})
     .orFail()
-    .then((users) => res.status(SUCCESS_STATUS).send(users))
+    .then((users) => res.send(users))
     .catch((err) => {
       if (err instanceof mongoose.Error.DocumentNotFoundError) {
         return next(new NotFoundError('Ошибка! Пользователи не найдены.'));
@@ -75,7 +81,7 @@ module.exports.getAllUsers = (_req, res, next) => {
 
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
-    .then((user) => res.status(SUCCESS_STATUS).send(user))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err instanceof mongoose.Error.DocumentNotFoundError) {
         return next(new NotFoundError('Ошибка! Пользователь не найден.'));
@@ -87,7 +93,7 @@ module.exports.getCurrentUser = (req, res, next) => {
 module.exports.getUserById = (req, res, next) => {
   User.findById(req.params.userId)
     .orFail()
-    .then((user) => res.status(SUCCESS_STATUS).send(user))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
         return next(new BadRequestError('Ошибка! Переданы некорректные данные.'));
@@ -104,7 +110,7 @@ module.exports.updateProfile = (req, res, next) => {
   const owner = req.user._id;
 
   User.findByIdAndUpdate(owner, { name, about }, { new: true, runValidators: true })
-    .then((updatedUser) => res.status(SUCCESS_STATUS).send(updatedUser))
+    .then((updatedUser) => res.send(updatedUser))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         return next(new BadRequestError('Ошибка! Не удалось обновить данные пользователя.'));
@@ -118,7 +124,7 @@ module.exports.updateProfileAvatar = (req, res, next) => {
   const owner = req.user._id;
 
   User.findByIdAndUpdate(owner, { avatar }, { new: true, runValidators: true })
-    .then((updatedUser) => res.status(SUCCESS_STATUS).send(updatedUser))
+    .then((updatedUser) => res.send(updatedUser))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         return next(new BadRequestError('Ошибка! Не удалось обновить аватар пользователя.'));

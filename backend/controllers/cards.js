@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const Card = require('../models/card');
 const BadRequestError = require('../errors/BadRequestError');
 const NotFoundError = require('../errors/NotFoundError');
-const { SUCCESS_STATUS, CREATED_STATUS } = require('../utils/constants');
+const { CREATED_STATUS } = require('../utils/constants');
 
 module.exports.getCards = (_req, res, next) => {
   Card.find({})
-    .then((cards) => res.status(SUCCESS_STATUS).send(cards))
+    .then((cards) => res.send(cards))
     .catch(next);
 };
 
@@ -31,7 +31,7 @@ module.exports.deleteById = (req, res, next) => {
 
   Card.checkCardOwner(cardId, userId)
     .then((card) => Card.findByIdAndRemove(card._id, { new: true }))
-    .then(() => res.status(SUCCESS_STATUS).send({ message: 'Пост удален.' }))
+    .then(() => res.send({ message: 'Пост удален.' }))
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
         return next(new BadRequestError('Ошибка при удалении карточки! Переданы некорректные данные.'));
@@ -48,7 +48,7 @@ module.exports.addLike = (req, res, next) => {
 
   Card.findByIdAndUpdate(req.params.cardId, { $addToSet: { likes: owner } }, { new: true })
     .orFail(() => new NotFoundError('Ошибка при добавлении лайка! Данной карточки нет в базе.'))
-    .then((card) => res.status(SUCCESS_STATUS).send(card))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
         return next(new BadRequestError('Ошибка при добавлении лайка! Переданы некорректные данные.'));
@@ -62,7 +62,7 @@ module.exports.deleteLike = (req, res, next) => {
 
   Card.findByIdAndUpdate(req.params.cardId, { $pull: { likes: owner } }, { new: true })
     .orFail(() => new NotFoundError('Ошибка при удалении лайка! Данной карточки нет в базе.'))
-    .then((card) => res.status(SUCCESS_STATUS).send(card))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
         return next(new BadRequestError('Ошибка при удалении лайка! Переданы некорректные данные.'));
