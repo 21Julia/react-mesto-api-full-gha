@@ -1,6 +1,7 @@
 [![Статус тестов](../../actions/workflows/tests.yml/badge.svg)](../../actions/workflows/tests.yml)
 
-# <h1 align="center">$\mathbb{\color{#307eed}{\Huge Проект{:} \ «Место \ на \ React. \ Frontend \ + \ Backend»}}$</h1>
+# <h1 align="center">$\mathbb{\color{#307eed}{\Huge Проект{:} \ «Место \ на \ React.}}$</h1>
+# <h1 align="center">$\mathbb{\color{#307eed}{\Huge Frontend \ + \ Backend»}}$</h1>
 
 ## <h2 align="center">$\mathbb{\color{#307eed}{\Huge С \ регистрацией \ и \ авторизацией \ пользователей}}$</h2>
 
